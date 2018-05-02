@@ -7,7 +7,8 @@
     "start": "node build",
     "build": "babel src --out-dir build --copy-files --ignore src/static",
     "dev": "node src/require",
-    "lint": "eslint ."
+    "lint": "eslint .",
+    "push": "git push dokku master"
   },
   "repository": {
     "type": "git",
