@@ -1,0 +1,22 @@
+#menu {
+  text-align: right;
+  background: #294874;
+  line-height: 0;
+}
+
+#menu svg {
+  height: 100%;
+  max-width: 100%;
+}
+
+#menu svg>g>g[token="3"], #menu svg>g>g[token="4"], #menu svg>g>g[token="2"], #menu svg>g>g[token="1"] {
+  cursor: pointer;
+}
+
+body {
+  margin: 0;
+}
+
+#info {
+  margin: 1rem;
+}

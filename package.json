@@ -37,6 +37,7 @@
     "zoroaster": "1.0.1"
   },
   "dependencies": {
-    "idio": "2.2.0"
+    "idio": "2.2.0",
+    "koa-static": "4.0.2"
   }
 }

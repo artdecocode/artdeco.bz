@@ -1,5 +1,6 @@
-const { startApp, initRoutes } = require('idio')
-const { resolve } = require('path')
+import { startApp, initRoutes } from 'idio'
+import { resolve } from 'path'
+import serve from 'koa-static'
 
 const routesDir = resolve(__dirname, 'routes')
 
@@ -23,6 +24,10 @@ export default async (config = {}, initRoutesConfig = {}) => {
   })
 
   const { url, app, router } = res
+
+  app.use(serve(resolve(__dirname, 'static'), {
+    maxage: production ? 1000 * 60 * 60 * 24 * 10 : 0,
+  }))
 
   await initRoutes(routesDir, router, {
     defaultImports: true,
