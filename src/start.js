@@ -12,7 +12,7 @@ const production = NODE_ENV == 'production'
 export default async (config = {}, initRoutesConfig = {}) => {
   const res = await startApp({
     databaseURL: DATABASE_URL,
-    // autoConnect: false,
+    autoConnect: false,
     port: PORT,
     middleware: {
       logger: { use: !production },
