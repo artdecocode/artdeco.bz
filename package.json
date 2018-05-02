@@ -1,0 +1,41 @@
+{
+  "name": "artdeco.bz",
+  "version": "1.0.0",
+  "description": "Art Deco Code official website.",
+  "scripts": {
+    "test": "zoroaster test",
+    "start": "node build",
+    "build": "babel src --out-dir build --copy-files --ignore src/static",
+    "dev": "node src/require",
+    "lint": "eslint ."
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/artdecocode/artdeco.bz.git"
+  },
+  "keywords": [
+    "artdeco.bz"
+  ],
+  "author": "Anton <anton@adc.sh>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/artdecocode/artdeco.bz/issues"
+  },
+  "homepage": "https://github.com/artdecocode/artdeco.bz#readme",
+  "devDependencies": {
+    "@babel/cli": "7.0.0-beta.46",
+    "@babel/core": "7.0.0-beta.46",
+    "@babel/plugin-proposal-object-rest-spread": "7.0.0-beta.46",
+    "@babel/plugin-transform-modules-commonjs": "7.0.0-beta.46",
+    "@babel/preset-react": "7.0.0-beta.46",
+    "@babel/register": "7.0.0-beta.46",
+    "babel-plugin-react-require": "3.0.0",
+    "eslint": "4.19.1",
+    "eslint-plugin-react": "7.7.0",
+    "rqt": "1.1.0",
+    "zoroaster": "1.0.1"
+  },
+  "dependencies": {
+    "idio": "2.2.0"
+  }
+}
