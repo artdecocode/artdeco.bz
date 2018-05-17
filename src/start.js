@@ -1,6 +1,8 @@
 import { startApp, initRoutes } from 'idio'
 import { resolve } from 'path'
 import serve from 'koa-static'
+import middleware from './middleware'
+import browserify from '../browserify/browserify'
 
 const routesDir = resolve(__dirname, 'routes')
 
@@ -11,15 +13,12 @@ const { env: { NODE_ENV } } = process
 const production = NODE_ENV == 'production'
 
 export default async (config = {}, initRoutesConfig = {}) => {
+  await browserify()
   const res = await startApp({
     // databaseURL: DATABASE_URL,
     autoConnect: false,
     port: PORT,
-    middleware: {
-      logger: { use: !production },
-      compress: { use: true },
-      koa2Jsx: { wireframe: true, use: true, bootstrap: true },
-    },
+    middleware,
     ...config,
   })
 
