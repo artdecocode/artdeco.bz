@@ -3,6 +3,7 @@ import babelify from 'babelify'
 import watchify from 'watchify'
 import { createWriteStream } from 'fs'
 import { relative, resolve } from 'path'
+import { Transform } from 'stream'
 
 const rel = resolve(__dirname, '..')
 
@@ -27,6 +28,17 @@ export default (path, output, name) => {
     ],
   })
 
+  const hasher = new Transform({
+    objectMode: true,
+    transform(row, enc, next) {
+      // console.log(row.id)
+      this.push(row)
+      next()
+    },
+  })
+  b.pipeline.get('deps').push(hasher)
+
+
   b
     .on('update', bundle)
     .on('bundle', () => {
@@ -36,7 +48,7 @@ export default (path, output, name) => {
 
   function bundle() {
     b.bundle()
-      .on('error', console.error)
+      .on('error', ({ message }) => console.log(message))
       .pipe(createWriteStream(output))
   }
 }

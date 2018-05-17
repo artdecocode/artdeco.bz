@@ -1,6 +1,9 @@
 import Tamara from './Tamara'
+import JSONList from './JSONList'
+import StateInfo from './StateInfo';
 
 export default ({ list }) => {
+  const s = JSON.stringify(list).replace(/'/g, '\\\'')
   return (
     <div className="container">
       <div id="tmr">
@@ -14,24 +17,16 @@ export default ({ list }) => {
         </div>
 
         <div className="col">
-          <h2>Image Information</h2>
-          <table className="table">
-            <tbody>
-              <tr>
-                <th scope="row">What</th>
-                <td>Value</td>
-              </tr>
-              <tr>
-                <th scope="row">What2</th>
-                <td>Value2</td>
-              </tr>
-            </tbody>
-          </table>
-          {/* <pre dangerouslySetInnerHTML={{ __html: s }} /> */}
-
+          <h2>Picture Information</h2>
+          <div id="info">
+            <StateInfo object={null} />
+          </div>
         </div>
         <div className="col">
-          Choose an image to embed metadata to it.
+          <div id="json">
+            <JSONList list={list} />
+          </div>
+          {/* Choose an image to embed metadata to it. */}
         </div>
       </div>
 
@@ -48,7 +43,7 @@ export default ({ list }) => {
       </script>
       <script dangerouslySetInnerHTML={{ __html: `
         // var process = { env: { NODE_ENV: "development" } }
-        var items = JSON.parse('${JSON.stringify(list).replace('\'', '\\\'')}')
+        var items = JSON.parse('${s}')
         console.log(items)
       ` }}>
       </script>

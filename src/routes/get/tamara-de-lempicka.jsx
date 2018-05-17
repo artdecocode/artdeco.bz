@@ -19,7 +19,9 @@ const getNData = (data, n) => {
   return data
     .filter(({ title }) => {
       return (title != 'Perspective') &&
-        (title != 'Nude on a Terrace')
+        (title != 'Nude on a Terrace') &&
+        (title != 'The Pink Shirt') &&
+        (title != 'Maternity')
     })
     .slice(0, n)
 }
@@ -92,7 +94,7 @@ export default async (ctx, next) => {
     992: 960,
     768: 720,
     576: 540,
-  }, images, 250)
+  }, images, 300)
   const css = getCSS(p)
   const rows = getRows(p[576], 'height')
 
@@ -117,9 +119,8 @@ export default async (ctx, next) => {
   ctx.addStyle(css)
 
   const list = images
-    .map((image, index) => ({
+    .map((image) => ({
       url: image.image,
-      className: `s${index}`,
       ...image,
     }))
 
