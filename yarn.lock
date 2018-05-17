@@ -511,9 +511,9 @@ babel-plugin-react-require@3.0.0:
   version "3.0.0"
   resolved "https://registry.yarnpkg.com/babel-plugin-react-require/-/babel-plugin-react-require-3.0.0.tgz#2e4e7b4496b93a654a1c80042276de4e4eeb20e3"
 
-babelify@8.0.0:
+babelify@babel/babelify#3c10e0c:
   version "8.0.0"
-  resolved "https://registry.yarnpkg.com/babelify/-/babelify-8.0.0.tgz#6f60f5f062bfe7695754ef2403b842014a580ed3"
+  resolved "https://codeload.github.com/babel/babelify/tar.gz/3c10e0c05b5af5d3662195785546c0240daab8a7"
 
 babylon@7.0.0-beta.47:
   version "7.0.0-beta.47"

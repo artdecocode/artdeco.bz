@@ -3,8 +3,8 @@
   "version": "1.0.0",
   "description": "Art Deco Code official website.",
   "scripts": {
-    "t": "zoroaster --babel --watch",
-    "test": "zoroaster test",
+    "t": "NODE_ENV=test zoroaster --babel",
+    "test": "yarn t test/spec",
     "start": "node build",
     "build": "babel src --out-dir build --copy-files --ignore src/static",
     "dev": "node src/require",
@@ -33,6 +33,7 @@
     "@babel/preset-react": "7.0.0-beta.47",
     "@babel/register": "7.0.0-beta.47",
     "babel-plugin-react-require": "3.0.0",
+    "babelify": "babel/babelify#3c10e0c",
     "eslint": "4.19.1",
     "eslint-config-artdeco": "1.0.0",
     "eslint-plugin-react": "7.8.2",
@@ -41,7 +42,6 @@
     "zoroaster": "2.0.0"
   },
   "dependencies": {
-    "babelify": "8.0.0",
     "browserify": "16.2.2",
     "idio": "2.3.0",
     "koa-static": "4.0.2",

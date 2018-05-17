@@ -7,9 +7,8 @@ const getRows = (p, key = 'height', images) => {
   const { arrays } = p.reduce(({ arrays = [], currentArray = null, current = null }, item, i) => {
     const it = images ? images[i] : item
     const val = item[key]
-    const itm = { className: `s${i}`, ...it }
     if (currentArray && current === val) {
-      currentArray.push(itm)
+      currentArray.push(it)
       const res = {
         arrays,
         currentArray,
@@ -17,7 +16,7 @@ const getRows = (p, key = 'height', images) => {
       }
       return res
     } else {
-      const ca = [itm]
+      const ca = [it]
       arrays.push(ca)
       const res = {
         arrays,

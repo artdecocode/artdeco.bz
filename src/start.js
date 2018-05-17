@@ -11,9 +11,10 @@ const PORT = process.env.PORT || 5000
 
 const { env: { NODE_ENV } } = process
 const production = NODE_ENV == 'production'
+const test = NODE_ENV == 'test'
 
 export default async (config = {}, initRoutesConfig = {}) => {
-  await browserify()
+  if (!test) await browserify()
   const res = await startApp({
     // databaseURL: DATABASE_URL,
     autoConnect: false,
