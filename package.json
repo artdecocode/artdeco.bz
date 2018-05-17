@@ -43,6 +43,7 @@
   },
   "dependencies": {
     "browserify": "16.2.2",
+    "classnames": "2.2.5",
     "idio": "2.4.0",
     "koa-static": "4.0.2",
     "photo-partition": "0.1.3",

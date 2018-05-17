@@ -1,68 +1,37 @@
 /* eslint-env browser */
-/* global items, ReactDOM, Redux, ReactRedux */
-import Tamara from '../Components/Tamara.jsx'
-import JSONList from '../Components/JSONList.jsx'
-import StateInfo from '../Components/StateInfo.jsx'
+/* global ReactDOM, Redux, ReactRedux */
+// import Tamara from '../Components/Tamara.jsx'
+// import JSONList from '../Components/JSONList.jsx'
+// import StateInfo from '../Components/StateInfo.jsx'
 const { hydrate } = ReactDOM
-const { createStore, combineReducers } = Redux
+const { createStore } = Redux
 const { connect, Provider } = ReactRedux
+import TamaraDeLempicka from '../Components/TamaraDeLempicka.jsx'
+import r from '../reducer'
 
-const r = combineReducers({
-  items(state = items, action) {
-    if (action.type == 'SET_ITEMS') {
-      return action.items
-    }
-    return state
-  },
-  selected(state = null, action) {
-    if (action.type == 'SELECTED') {
-      state = action.selected
-    }
-    return state
-  },
-})
 const store = createStore(r)
 
-const mapStateToProps = ({ items }) => {
-  return {
-    list: items,
-  }
-}
-const ConnectedTamara = connect(
-  mapStateToProps,
+const ConnectedTamaraDeLempicka = connect(
+  ({ items, selected }) => {
+    return {
+      list: items,
+      selected,
+    }
+  },
   dispatch => ({
     onSelect: object => {
       dispatch({ type: 'SELECTED', selected: object })
     },
+    onDeselect: () => {
+      dispatch({ type: 'SELECTED', selected: null })
+    },
   }),
-)(Tamara)
-
-const ConnectedJSONList = connect(
-  ({ items }) => ({ list: items }),
-)(JSONList)
-
-const ConnectedStateInfo = connect(
-  ({ selected }) => ({ object: selected }),
-)(StateInfo)
+)(TamaraDeLempicka)
 
 const C = (
   <Provider store={store}>
-    <ConnectedTamara />
+    <ConnectedTamaraDeLempicka />
   </Provider>
 )
 
-const T = (
-  <Provider store={store}>
-    <ConnectedJSONList />
-  </Provider>
-)
-
-const S = (
-  <Provider store={store}>
-    <ConnectedStateInfo />
-  </Provider>
-)
-
-hydrate(C, document.getElementById('tmr'))
-hydrate(T, document.getElementById('json'))
-hydrate(S, document.getElementById('info'))
+hydrate(C, document.getElementById('Tamara'))

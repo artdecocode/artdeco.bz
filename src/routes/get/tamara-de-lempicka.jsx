@@ -52,12 +52,29 @@ const getData = async (n = 20) => {
   return getNData(data, n)
 }
 
+const Wrapper = ({ children, data }) => {
+  const s = JSON.stringify(data).replace(/'/g, '\\\'')
+  const a = <script dangerouslySetInnerHTML={{ __html: 'var process = { env: { NODE_ENV: "development" } }' }} />
+  const b = <script dangerouslySetInnerHTML={{
+    __html: `
+  var items = JSON.parse('${s}')
+`.trim(),
+  }} />
+  return (
+    <div className="container">
+      {children}
+      {a}
+      {b}
+    </div>
+  )
+}
+
 const getNullCss = (rows) => {
   let i = -1
   const m = rows.reduce((acc, row) => {
     // const { length } = row
-    const totalWidth = row.reduce((acc, { width }) => {
-      return acc + width
+    const totalWidth = row.reduce((a, { width }) => {
+      return a + width
     }, 0)
     let totalW = 0
     const items = row.map(({ width }, j, { length: count }) => {
@@ -87,7 +104,6 @@ const getNullCss = (rows) => {
  */
 export default async (ctx, next) => {
   const images = await getData(10)
-  const s = JSON.stringify(images, null, 2)
 
   const p = partitions({
     1200: 1140,
@@ -111,9 +127,18 @@ export default async (ctx, next) => {
   }
   `)
   ctx.addStyle(`
-  #images {
-    background: black;
+  .s.Selected {
+    border: 10px solid white;
   }
+  // .s.Selected::before {
+  //   position: absolute;
+  //   border: 1rem solid #00000087;
+  //   left: 0;
+  //   right: 0;
+  //   top: 0;
+  //   bottom: 0;
+  //   content: "";
+  // }
   `)
   ctx.addStyle(nullCss)
   ctx.addStyle(css)
@@ -124,13 +149,17 @@ export default async (ctx, next) => {
       ...image,
     }))
 
-  // console.log(p)
-
   ctx.setTitle('Art Deco: Tamara de Lempicka')
 
   ctx.addCss('/index.css')
 
-  ctx.Content = <TamaraDeLempicka list={list}/>
+  ctx.Content = (
+    <Wrapper data={list}>
+      <div id="Tamara">
+        <TamaraDeLempicka list={list} />
+      </div>
+    </Wrapper>
+  )
 
   ctx.addScript('/scripts/tamara-de-lempicka.js')
 

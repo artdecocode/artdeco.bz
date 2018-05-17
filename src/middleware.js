@@ -36,16 +36,17 @@ export default {
         ] : 'https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.1/css/bootstrap.css')
 
         ctx.addScript(production ? [
+          'https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.slim.min.js',
+          'sha256-3edrmyuQ0w65f8gfBsqowzjJe2iM6n0nKciPUp8y+7E=',
+          'anonymous',
+        ] : 'https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.slim.js')
+
+        ctx.addScript(production ? [
           'https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.1/js/bootstrap.min.js',
           'sha256-xaF9RpdtRxzwYMWg4ldJoyPWqyDPCRD0Cv7YEEe6Ie8=',
           'anonymous',
         ] : 'https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.1/js/bootstrap.min.js')
 
-        ctx.addScript(production ? [
-          'https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.slim.min.js',
-          'sha256-3edrmyuQ0w65f8gfBsqowzjJe2iM6n0nKciPUp8y+7E=',
-          'anonymous',
-        ] : 'https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.slim.js')
 
         await next()
       }

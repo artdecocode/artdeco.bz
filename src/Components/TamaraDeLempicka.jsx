@@ -1,15 +1,10 @@
-import Tamara from './Tamara'
-import JSONList from './JSONList'
-import StateInfo from './StateInfo';
+import Tamara from './Tamara.jsx'
+import StateInfo from './StateInfo.jsx'
 
-export default ({ list }) => {
-  const s = JSON.stringify(list).replace(/'/g, '\\\'')
+export default ({ list, onSelect, onDeselect, selected }) => {
   return (
-    <div className="container">
-      <div id="tmr">
-        <Tamara list={list} />
-      </div>
-
+    <div>
+      <Tamara list={list} onSelect={onSelect} onDeselect={onDeselect} selected={selected} />
       <div className="row" style={{ paddingTop: 20 }}>
         <div className="col">
           <h1>Art Deco: Tamara de Lempicka</h1>
@@ -19,15 +14,15 @@ export default ({ list }) => {
         <div className="col">
           <h2>Picture Information</h2>
           <div id="info">
-            <StateInfo object={null} />
+            <StateInfo object={selected} />
           </div>
         </div>
-        <div className="col">
+        {/* <div className="col">
           <div id="json">
             <JSONList list={list} />
-          </div>
+          </div> */}
           {/* Choose an image to embed metadata to it. */}
-        </div>
+        {/* </div> */}
       </div>
 
       <div className="row">
@@ -38,15 +33,6 @@ export default ({ list }) => {
           </p>
         </div>
       </div>
-
-      <script dangerouslySetInnerHTML={{ __html: 'var process = { env: { NODE_ENV: "development" } }' }}>
-      </script>
-      <script dangerouslySetInnerHTML={{ __html: `
-        // var process = { env: { NODE_ENV: "development" } }
-        var items = JSON.parse('${s}')
-        console.log(items)
-      ` }}>
-      </script>
     </div>
   )
 }
