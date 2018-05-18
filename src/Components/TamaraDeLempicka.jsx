@@ -1,5 +1,5 @@
-import Tamara from './Tamara.jsx'
-import StateInfo from './StateInfo.jsx'
+import Tamara from './Tamara'
+import StateInfo from './StateInfo'
 
 export default ({ list, onSelect, onDeselect, selected }) => {
   return (

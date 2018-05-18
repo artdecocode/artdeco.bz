@@ -1,12 +1,8 @@
-/* eslint-env browser */
 /* global ReactDOM, Redux, ReactRedux */
-// import Tamara from '../Components/Tamara.jsx'
-// import JSONList from '../Components/JSONList.jsx'
-// import StateInfo from '../Components/StateInfo.jsx'
 const { hydrate } = ReactDOM
 const { createStore } = Redux
 const { connect, Provider } = ReactRedux
-import TamaraDeLempicka from '../Components/TamaraDeLempicka.jsx'
+import TamaraDeLempicka from '../Components/TamaraDeLempicka'
 import r from '../reducer'
 
 const store = createStore(r)

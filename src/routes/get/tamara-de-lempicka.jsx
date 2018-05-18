@@ -10,21 +10,19 @@ const params = new URLSearchParams({
   artistUrl: 'tamara-de-lempicka',
   json: 2,
 })
-// {/* &nbsp;<a href="mailto:contact@adc.sh">contact@adc.sh</a> */}
-// {/* <h1 className="font-effect-anaglyph">Art Deco Code</h1> */}
 
 const DATA = resolve(__dirname, '../../data.json')
+
+const excluded = ['Perspective', 'Nude on a Terrace', 'The Pink Shirt', 'Maternity']
 
 const getNData = (data, n) => {
   return data
     .filter(({ title }) => {
-      return (title != 'Perspective') &&
-        (title != 'Nude on a Terrace') &&
-        (title != 'The Pink Shirt') &&
-        (title != 'Maternity')
+      return excluded.indexOf(title) == -1
     })
     .slice(0, n)
 }
+
 /**
  * @type {object[]}
  */
@@ -83,10 +81,8 @@ const getNullCss = (rows) => {
       totalW += w
       if (j == count - 1) {
         const d = 100 - totalW
-        // console.log('abc', d, w)
         w = w + d
       }
-      // console.log(length, width, height)
       const s = `
 .s${i} {
   width: ${w}%;
@@ -97,7 +93,6 @@ const getNullCss = (rows) => {
   }, [])
   return m.join('\n')
 }
-
 
 /**
  * @type {Koa.Middleware}
@@ -125,20 +120,6 @@ export default async (ctx, next) => {
   .s {
     float: left;
   }
-  `)
-  ctx.addStyle(`
-  .s.Selected {
-    border: 10px solid white;
-  }
-  // .s.Selected::before {
-  //   position: absolute;
-  //   border: 1rem solid #00000087;
-  //   left: 0;
-  //   right: 0;
-  //   top: 0;
-  //   bottom: 0;
-  //   content: "";
-  // }
   `)
   ctx.addStyle(nullCss)
   ctx.addStyle(css)
