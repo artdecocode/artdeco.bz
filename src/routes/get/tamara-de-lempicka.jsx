@@ -51,11 +51,12 @@ const getData = async (n = 20) => {
 }
 
 const Wrapper = ({ children, data }) => {
-  const s = JSON.stringify(data).replace(/'/g, '\\\'')
+  const s = JSON.stringify(data).replace(/'/g, '\\\'').replace(/"/g, '\\"')
   const a = <script dangerouslySetInnerHTML={{ __html: 'var process = { env: { NODE_ENV: "development" } }' }} />
   const b = <script dangerouslySetInnerHTML={{
     __html: `
-  var items = JSON.parse('${s}')
+  var s = '${s}'
+  var items = JSON.parse(s)
 `.trim(),
   }} />
   return (
@@ -111,16 +112,6 @@ export default async (ctx, next) => {
 
   const nullCss = getNullCss(rows)
 
-  ctx.addStyle(`
-  img.preview {
-    width: 100%;
-    height: 100%;
-  }
-
-  .s {
-    float: left;
-  }
-  `)
   ctx.addStyle(nullCss)
   ctx.addStyle(css)
 
@@ -131,13 +122,23 @@ export default async (ctx, next) => {
     }))
 
   ctx.setTitle('Art Deco: Tamara de Lempicka')
-
   ctx.addCss('/index.css')
+  ctx.addCss('/styles/tamara-de-lempicka.css')
 
   ctx.Content = (
     <Wrapper data={list}>
       <div id="Tamara">
         <TamaraDeLempicka list={list} />
+      </div>
+      <div className="row" style={{ marginTop: '1rem' }}>
+        <div className="col">
+          <p>
+            This page is generated with <a href="https://npmjs.org/package/photo-partition">photo-partition</a>, and <a href="https://npmjs.org/package/idio">idio</a> packages with information from
+            &nbsp;<a href="http://www.theartstory.org/artist-de-lempicka-tamara-artworks.htm">The Art Story</a>
+            <br/><br/> <a href="https://artdeco.bz">by Art Deco Code</a>
+            {/* <img src="/img/images.jpeg" alt="painting" /> */}
+          </p>
+        </div>
       </div>
     </Wrapper>
   )
