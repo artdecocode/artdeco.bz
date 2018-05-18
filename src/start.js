@@ -15,7 +15,7 @@ const production = NODE_ENV == 'production'
 const test = NODE_ENV == 'test'
 
 export default async () => {
-  if (!test) await watchBundles({
+  if (!test && !production) await watchBundles({
     from, to,
     babelify: {
       babelrc: false,
