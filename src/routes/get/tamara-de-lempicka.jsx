@@ -132,11 +132,10 @@ export default async (ctx, next) => {
       </div>
       <div className="row" style={{ marginTop: '1rem' }}>
         <div className="col">
+          <hr />
           <p>
-            This page is generated with <a href="https://npmjs.org/package/photo-partition">photo-partition</a>, and <a href="https://npmjs.org/package/idio">idio</a> packages with information from
-            &nbsp;<a href="http://www.theartstory.org/artist-de-lempicka-tamara-artworks.htm">The Art Story</a>
-            <br/><br/> <a href="https://artdeco.bz">by Art Deco Code</a>
-            {/* <img src="/img/images.jpeg" alt="painting" /> */}
+            This page is generated with <a href="https://npmjs.org/package/photo-partition">photo-partition</a>, and <a href="https://npmjs.org/package/idio">idio</a> packages with information from <a href="http://www.theartstory.org/artist-de-lempicka-tamara-artworks.htm">The Art Story</a> and <a href="https://www.wikiart.org/">WikiArt API</a>.
+            <br/>&copy; 2018, <a href="https://artdeco.bz">Art Deco Code</a>
           </p>
         </div>
       </div>

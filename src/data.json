@@ -48,39 +48,6 @@
     "description": "Lempicka is said to have found a new model for her paintings in the Bois de Boulogne, a very large public park in Paris that was also the place where prostitutes often proffered their services. Known only to us, the viewers, as \"Rafaela\", she became the main muse and subject for Lempicka's paintings for over a year.\\nThe style of the painting is reminiscent of a work by Caravaggio in its emphasis of light and shadow. But in this dramatic picture, the focus is on the powerful, sensuous, and sculptural form of the nude female figure. The shapely curves of Rafaela have both a beauty and a strength that Lempicka is most famous for. This achievement was noticed by the German women's magazine, Die Dame, and Lempicka was commissioned to produce a series of covers for it."
   },
   {
-    "title": "Redheaded Woman Reading",
-    "contentId": 207997,
-    "artistContentId": 207946,
-    "artistName": "Tamara de Lempicka",
-    "completitionYear": 1922,
-    "yearAsString": "1922",
-    "width": 546,
-    "image": "https://uploads0.wikiart.org/images/tamara-de-lempicka/redheaded-woman-reading-1922.jpg!Large.jpg",
-    "height": 700
-  },
-  {
-    "title": "Perspective",
-    "contentId": 207972,
-    "artistContentId": 207946,
-    "artistName": "Tamara de Lempicka",
-    "completitionYear": 1923,
-    "yearAsString": "1923",
-    "width": 700,
-    "image": "https://uploads6.wikiart.org/images/tamara-de-lempicka/perspective-1923.jpg!Large.jpg",
-    "height": 555
-  },
-  {
-    "title": "Woman in Black Dress",
-    "contentId": 208023,
-    "artistContentId": 207946,
-    "artistName": "Tamara de Lempicka",
-    "completitionYear": 1923,
-    "yearAsString": "1923",
-    "width": 373,
-    "image": "https://uploads6.wikiart.org/images/tamara-de-lempicka/woman-in-black-dress-1923.jpg!Large.jpg",
-    "height": 1284
-  },
-  {
     "title": "Double 47",
     "contentId": 207956,
     "artistContentId": 207946,
@@ -90,6 +57,17 @@
     "width": 794,
     "image": "https://uploads8.wikiart.org/images/tamara-de-lempicka/double-47.jpg!Large.jpg",
     "height": 1023
+  },
+  {
+    "title": "Portrait of Prince Eristoff",
+    "contentId": 207989,
+    "artistContentId": 207946,
+    "artistName": "Tamara de Lempicka",
+    "completitionYear": 1925,
+    "yearAsString": "1925",
+    "width": 1202,
+    "image": "https://uploads4.wikiart.org/images/tamara-de-lempicka/portrait-of-prince-eristoff-1925.jpg!Large.jpg",
+    "height": 841
   },
   {
     "title": "Portrait of Madame Zanetos",
@@ -136,15 +114,37 @@
     "height": 648
   },
   {
-    "title": "Portrait of Prince Eristoff",
-    "contentId": 207989,
+    "title": "Redheaded Woman Reading",
+    "contentId": 207997,
     "artistContentId": 207946,
     "artistName": "Tamara de Lempicka",
-    "completitionYear": 1925,
-    "yearAsString": "1925",
-    "width": 1202,
-    "image": "https://uploads4.wikiart.org/images/tamara-de-lempicka/portrait-of-prince-eristoff-1925.jpg!Large.jpg",
-    "height": 841
+    "completitionYear": 1922,
+    "yearAsString": "1922",
+    "width": 546,
+    "image": "https://uploads0.wikiart.org/images/tamara-de-lempicka/redheaded-woman-reading-1922.jpg!Large.jpg",
+    "height": 700
+  },
+  {
+    "title": "Perspective",
+    "contentId": 207972,
+    "artistContentId": 207946,
+    "artistName": "Tamara de Lempicka",
+    "completitionYear": 1923,
+    "yearAsString": "1923",
+    "width": 700,
+    "image": "https://uploads6.wikiart.org/images/tamara-de-lempicka/perspective-1923.jpg!Large.jpg",
+    "height": 555
+  },
+  {
+    "title": "Woman in Black Dress",
+    "contentId": 208023,
+    "artistContentId": 207946,
+    "artistName": "Tamara de Lempicka",
+    "completitionYear": 1923,
+    "yearAsString": "1923",
+    "width": 373,
+    "image": "https://uploads6.wikiart.org/images/tamara-de-lempicka/woman-in-black-dress-1923.jpg!Large.jpg",
+    "height": 1284
   },
   {
     "title": "Portrait of the Duchess of La Salle",
